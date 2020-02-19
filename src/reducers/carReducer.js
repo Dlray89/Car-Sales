@@ -6,12 +6,32 @@ export const initialState =  {
       image:
         'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
       features: []
-    }
-}
+    },
+
+additionalFeatures: [
+  { id: 1, name: "V-6 engine", price: 1500 },
+  { id: 2, name: "Racing detail package", price: 1500 },
+  { id: 3, name: "Premium sound system", price: 500 },
+  { id: 4, name: "Rear spoiler", price: 250 }
+]
+};
 
 export const carReducer = (state = initialState, action) => {
     switch(action.type){
+      case "REMOVE_FEATURES":
+      return {
+        ...state,
+        additionPrice: state.additionPrice - action.payload.price,
+        ...state.car
+      
+      };
+      case "ADD_FEATURES":
+      return {
+        ...state,
+        additionPrice: state.additionPrice + action.payload.price,
+        ...state.car
+      };
         default:
             return state
     }
-}
+};
