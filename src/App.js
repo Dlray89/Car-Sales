@@ -1,18 +1,17 @@
 import React from 'react';
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+
+
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 
-import { addFeature } from "./action/addFeature"
 
 import Total from './components/Total';
 
 const App = (props)=> {
   console.log("I am App props",props)
  
-  //  const[addItem, setAddItem] = useState()
-  //  const[removeItem, setRemoveItem] = useState()
 
 //   const removeFeature = item => {
 //     // dispatch an action here to remove an item
@@ -37,6 +36,7 @@ const App = (props)=> {
 };
 const mapStateToProps = state => {
   return {
+    car: state.car,
    additionPrice: state.additionalPrice,
    additionalFeatures: state.additionalFeatures
   };
@@ -44,7 +44,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addFeature }
+  {}
 )(App);
 
 
